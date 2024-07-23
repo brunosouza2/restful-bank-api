@@ -1,4 +1,4 @@
-package me.com.bank.domain;
+package me.com.bank.domain.model;
 
 import java.util.Objects;
 import java.util.Set;

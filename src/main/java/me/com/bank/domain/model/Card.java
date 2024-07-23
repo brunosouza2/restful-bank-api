@@ -1,4 +1,4 @@
-package me.com.bank.domain;
+package me.com.bank.domain.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

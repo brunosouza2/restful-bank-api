@@ -1,14 +1,14 @@
-package me.com.bank.domain;
+package me.com.bank.domain.model;
 
 import java.util.Objects;
 
-public class News {
+public class Feature {
 
     private Long id;
     private String icon;
     private String description;
 
-    public News(Long id, String icon, String description) {
+    public Feature(Long id, String icon, String description) {
         this.id = id;
         this.icon = icon;
         this.description = description;
@@ -41,18 +41,18 @@ public class News {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof News news)) return false;
-        return Objects.equals(getId(), news.getId()) && Objects.equals(getIcon(), news.getIcon()) && Objects.equals(getDescription(), news.getDescription());
+        if (!(o instanceof Feature feature)) return false;
+        return Objects.equals(id, feature.id) && Objects.equals(getIcon(), feature.getIcon()) && Objects.equals(getDescription(), feature.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getIcon(), getDescription());
+        return Objects.hash(id, getIcon(), getDescription());
     }
 
     @Override
     public String toString() {
-        return "News{" +
+        return "Feature{" +
                 "id=" + id +
                 ", icon='" + icon + '\'' +
                 ", description='" + description + '\'' +
