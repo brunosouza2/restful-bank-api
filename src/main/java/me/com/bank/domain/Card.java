@@ -5,12 +5,22 @@ import java.util.Objects;
 
 public class Card {
 
+    private Long id;
     private String number;
     private BigDecimal limit;
 
-    public Card(String number, BigDecimal limit) {
+    public Card(Long id, String number, BigDecimal limit) {
+        this.id = id;
         this.number = number;
         this.limit = limit;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNumber() {
@@ -33,18 +43,19 @@ public class Card {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Card card)) return false;
-        return Objects.equals(getNumber(), card.getNumber()) && Objects.equals(getLimit(), card.getLimit());
+        return Objects.equals(getId(), card.getId()) && Objects.equals(getNumber(), card.getNumber()) && Objects.equals(getLimit(), card.getLimit());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getNumber(), getLimit());
+        return Objects.hash(getId(), getNumber(), getLimit());
     }
 
     @Override
     public String toString() {
         return "Card{" +
-                "number='" + number + '\'' +
+                "id=" + id +
+                ", number='" + number + '\'' +
                 ", limit=" + limit +
                 '}';
     }

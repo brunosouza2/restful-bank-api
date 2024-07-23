@@ -4,12 +4,22 @@ import java.util.Objects;
 
 public class Feature {
 
+    private Long id;
     private String icon;
     private String description;
 
-    public Feature(String icon, String description) {
+    public Feature(Long id, String icon, String description) {
+        this.id = id;
         this.icon = icon;
         this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIcon() {
@@ -32,18 +42,19 @@ public class Feature {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Feature feature)) return false;
-        return Objects.equals(getIcon(), feature.getIcon()) && Objects.equals(getDescription(), feature.getDescription());
+        return Objects.equals(id, feature.id) && Objects.equals(getIcon(), feature.getIcon()) && Objects.equals(getDescription(), feature.getDescription());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIcon(), getDescription());
+        return Objects.hash(id, getIcon(), getDescription());
     }
 
     @Override
     public String toString() {
         return "Feature{" +
-                "icon='" + icon + '\'' +
+                "id=" + id +
+                ", icon='" + icon + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
