@@ -1,14 +1,27 @@
 package me.com.bank.domain.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Entity(name = "tab_account")
 public class Account {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "account_id")
     private Long id;
+
+    @Column(unique = true)
     private String number;
+
     private String agency;
+
+    @Column(scale = 13, precision = 2)
     private BigDecimal balance;
+
+    @Column(name = "additional_limit",scale = 13, precision = 2)
     private BigDecimal limit;
 
     public Account(Long id, String number, String agency, BigDecimal balance, BigDecimal limit) {
