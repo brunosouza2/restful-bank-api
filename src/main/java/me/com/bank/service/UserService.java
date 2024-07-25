@@ -3,7 +3,6 @@ package me.com.bank.service;
 import jakarta.persistence.EntityExistsException;
 import me.com.bank.domain.model.User;
 import me.com.bank.domain.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
