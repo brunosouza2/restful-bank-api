@@ -11,6 +11,7 @@ import java.net.URI;
 
 import static me.com.bank.domain.model.User.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
