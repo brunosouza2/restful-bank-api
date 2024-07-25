@@ -1,6 +1,7 @@
 package me.com.bank.domain.model;
 
 import jakarta.persistence.*;
+import me.com.bank.domain.model.dto.UserResponseDto;
 
 import java.util.Objects;
 import java.util.Set;
@@ -26,6 +27,9 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<News> news;
+
+    public User() {
+    }
 
     public User(Long id, String name, Account account, Set<Feature> feature, Card card, Set<News> news) {
         this.id = id;
@@ -82,6 +86,13 @@ public class User {
 
     public void setNews(Set<News> news) {
         this.news = news;
+    }
+
+    public static UserResponseDto toUserResponseDto(User user) {
+        return new UserResponseDto(
+                user.getId(), user.getName(), user.getAccount(),
+                user.getFeature(), user.getCard(), user.getNews()
+        );
     }
 
     @Override
